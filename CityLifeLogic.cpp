@@ -140,7 +140,7 @@ bool CityLifeLogic::sendRequest(){
     eventLoop.exec();
 
     // If timer still work, but reques finish, else if timer finished first disconnect it
-    if(timer.isActive()) {
+    if(timer.isActive()){
         timer.stop();
         // Bad request
         if (reply->error() != QNetworkReply::NoError){
