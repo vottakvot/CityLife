@@ -34,8 +34,8 @@ class CityLifeLogic
 
         // Keys for input args
         // Common
-        static const QString KEY_TIMEOUT;
         static const QString KEY_DELIMETER;
+        static const QString KEY_TIMEOUT;
         static const QString KEY_USER;
         static const QString KEY_PWD;
         static const QString KEY_OUTPUT;
