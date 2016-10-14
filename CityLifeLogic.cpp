@@ -87,6 +87,7 @@ const QString CityLifeLogic::STAT_PATH_SITE = "stat?";
 
 CityLifeLogic::CityLifeLogic(){
     pathToOutput = "";
+    pathToErrors = "";
     mode = CityLifeLogic::MODE::UNKNOWN;
     pContent = NULL;
     password = "";
