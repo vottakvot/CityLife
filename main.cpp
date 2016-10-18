@@ -38,18 +38,21 @@ int main(int argc, char *argv[])
     } catch (int e) {
         help();
         a.exit(e);
+        return e;
     } catch (QException &e){
         cout << "Unknown error with Qt. Code: " << e.what() << endl << endl;
         help();
         a.exit(RET_VALUE_UNKNOWN);
+        return RET_VALUE_UNKNOWN;
     } catch (exception &e) {
         cout << "Unknown error. Code: " << e.what() << endl << endl;
         help();
         a.exit(RET_VALUE_UNKNOWN);
+        return RET_VALUE_UNKNOWN;
     }
 
     a.exit(RET_VALUE_OK);
-    return 0;
+    return RET_VALUE_OK;
 }
 
 void help(){

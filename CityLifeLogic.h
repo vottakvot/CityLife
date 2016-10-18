@@ -111,6 +111,8 @@ class CityLifeLogic
         bool outputErrors(QString errors);
         // Output for result
         bool outputResult();
+        // Get count folders of path
+        QString getPath(QString path);
 
     private:
         // Finish args and values

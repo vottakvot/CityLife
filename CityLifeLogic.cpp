@@ -92,7 +92,7 @@ CityLifeLogic::CityLifeLogic(){
     pContent = NULL;
     password = "";
     delimeter = " :: ";
-    timeoutMs = 5000;
+    timeoutMs = 3000;
 }
 
 CityLifeLogic::~CityLifeLogic(){
@@ -278,7 +278,7 @@ bool CityLifeLogic::setValuesForRequest(QVector<QPair<QString, QString>> * argum
 
 bool CityLifeLogic::outputErrors(QString errors){
     if(pathToErrors.compare("") != 0 && errors.compare("") != 0){
-        QFile file(pathToErrors);
+        QFile file(getPath(pathToErrors));
         if (!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
             return false;
 
@@ -296,7 +296,7 @@ bool CityLifeLogic::outputErrors(QString errors){
 
 bool CityLifeLogic::outputResult(){
     if(pathToOutput.compare("") != 0 && result.size() > 0){
-        QFile file(pathToOutput);
+        QFile file(getPath(pathToOutput));
         if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text))
             return false;
 
@@ -317,3 +317,12 @@ bool CityLifeLogic::outputResult(){
 
     return false;
 }
+
+ QString CityLifeLogic::getPath(QString path){
+     QString fullPath("");
+     if(!path.contains("\\") && !path.contains(":")){
+        fullPath = QCoreApplication::applicationDirPath() + "/";
+     }
+
+     return fullPath + path;
+ }
